@@ -1,3 +1,4 @@
+var fs = require("fs");//file reader
 var http = require("http");
 
 http.createServer(function (request, response) {
@@ -7,8 +8,8 @@ http.createServer(function (request, response) {
    // Content Type: text/plain
    response.writeHead(200, {'Content-Type': 'text/html'});
    
-   // Send the response body as "Hello World"
-   response.end('<h1>Hello World</h1>\n');
+   var data = fs.readFileSync('index.html');
+   response.end(data);//'<h1>Hello World</h1>\n');
 
 
 }).listen(8081);
