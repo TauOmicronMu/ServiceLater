@@ -1,5 +1,7 @@
 var fs = require("fs");//file reader
 var http = require("http");
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 var incidentRequestURL = "https://orgen-jun7dlh005.lab.service-now.com/api/now/table/incident";
 
 http.createServer(function (request, response) {
@@ -10,7 +12,7 @@ http.createServer(function (request, response) {
    
    var data = fs.readFileSync('index.html');
    data = getIncidentTable();
-   
+
    response.end(data);//'<h1>Hello World</h1>\n');
 
 
