@@ -1,7 +1,5 @@
 var fs = require("fs");//file reader
 var http = require("http");
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
 var incidentRequestURL = "https://orgen-jun7dlh005.lab.service-now.com/api/now/table/incident";
 
 http.createServer(function (request, response) {
@@ -11,7 +9,7 @@ http.createServer(function (request, response) {
    response.writeHead(200, {'Content-Type': 'text/html'});
    
    var data = fs.readFileSync('index.html');
-   data = getIncidentTable();
+   //data = getIncidentTable();
 
    response.end(data);//'<h1>Hello World</h1>\n');
 
@@ -35,7 +33,7 @@ function getIncidentTable(){
 
 	client.onreadystatechange = function() { 
 		if(this.readyState = this.DONE) {
-			//document.getElementById("response").innerHTML=this.status + this.response; 
+			console.log(this.status + this.response); 
 			return this.response;
 		}
 	}; 
