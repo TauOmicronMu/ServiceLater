@@ -1,0 +1,27 @@
+{
+  "name": "servicelater",
+  "version": "0.0.1",
+  "description": "Application for ServiceNow hackathon",
+  "main": "index.js",
+  "dependencies": {
+    "node-twitter-api": "^1.7.2",
+    "querystring": "^0.2.0",
+    "request": "^2.72.0",
+    "twitter-oauth": "^0.0.6",
+    "twitter": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TauOmicronMu/ServiceLater.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TauOmicronMu/ServiceLater/issues"
+  },
+  "homepage": "https://github.com/TauOmicronMu/ServiceLater#readme"
+}
