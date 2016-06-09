@@ -26,8 +26,10 @@ console.log('Server running at http://127.0.0.1:8081/');
 function messageBird(){
 	messagebird.balance.read(function (err, data) {
 	  if (err) {
+	  	console.log(err);
 	    return err;
 	  }
+	  console.log(data);
 	  return data;
 	});
 }
