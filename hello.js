@@ -1,37 +1,3 @@
-<html>
-
-<head>
-</head>
-
-<body>
-
-  <button onclick="hello('twitter').login()">Twitter</button>
-
-  <script>
-    hello.on('auth.login', function(auth) {
-    
-    	// Call user information, for the given network
-    	hello(auth.network).api('/me').then(function(r) {
-    		// Inject it into the container
-    		var label = document.getElementById('profile_' + auth.network);
-    		if (!label) {
-    			label = document.createElement('div');
-    			label.id = 'profile_' + auth.network;
-    			document.getElementById('profile').appendChild(label);
-    		}
-    		label.innerHTML = '<img src="' + r.thumbnail + '" /> Hey ' + r.name;
-    	});
-    });
-  </script>
-
-  <script>
-    hello.init({
-    	twitter: e7xZhMLZXe7K48C9Rct5LISBS
-    }, {redirect_uri: 'redirect.html'});
-  </script>
-
-
-<script>
 /*! hellojs v1.13.1 | (c) 2012-2016 Andrew Dodson | MIT https://adodson.com/hello.js/LICENSE */
 // ES5 Object.create
 if (!Object.create) {
@@ -5850,7 +5816,3 @@ if (typeof module === 'object' && module.exports) {
 	module.exports = hello;
 }
 
-</script>
-</body>
-
-</html>
