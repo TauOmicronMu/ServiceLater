@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html ng-app="servicenowApp">
+
+<head>
+</head>
+
+<body>
+
+<!-- Initially just show the buttons that allow for OAuth login -->
+<div id="bodywrapper">
+    <div id="oauthbuttons">
+        <!-- TODO: create a variable in app.js that keeps track of what should be displayed - Eg. integer corresponding to pages. -->
+        <div class="oauthbutton" id="twitterbutton" ng-show="true"> </div>
+        <div class="oauthbutton" id="facebookbutton" ng-show="true"> </div>
+        <div class="oauthbutton" id="servicenowbutton" ng-show="true"> </div>
+        <div class="oauthbutton" id="googlebutton" ng-show="true"> </div>
+    </div>
+</div>
+
+</body>
+
+<!-- Load these after the rest of the page has rendered. -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="app.js"></script>
+
+</html>
