@@ -1,5 +1,6 @@
 var fs = require("fs");//file reader
 var http = require("http");
+var messagebird = require('messagebird')('test_opUX0kAE7T6qNa7R8OTIzVtTs');
 var incidentRequestURL = "https://orgen-jun7dlh005.lab.service-now.com/api/now/table/incident";
 
 http.createServer(function (request, response) {
@@ -8,7 +9,10 @@ http.createServer(function (request, response) {
    // Content Type: text/html
    response.writeHead(200, {'Content-Type': 'text/html'});
    
-   var data = fs.readFileSync('index.html');
+   //var data = fs.readFileSync('index.html');
+   var data = messageBird();
+
+
    //data = getIncidentTable();
 
    response.end(data);//'<h1>Hello World</h1>\n');
@@ -19,23 +23,11 @@ http.createServer(function (request, response) {
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
 
-function getIncidentTable(){
-	var requestBody = ""; 
-
-	var client=new XMLHttpRequest();
-	client.open("get","https://orgen-jun7dlh005.lab.service-now.com/api/now/table/incident");
-
-	client.setRequestHeader('Accept','application/json');
-	client.setRequestHeader('Content-Type','application/json');
-
-	//Eg. UserName="admin", Password="admin" for this code sample.
-	client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'admin'));
-
-	client.onreadystatechange = function() { 
-		if(this.readyState = this.DONE) {
-			console.log(this.status + this.response); 
-			return this.response;
-		}
-	}; 
-	client.send(requestBody);
+function messageBird(){
+	messagebird.balance.read(function (err, data) {
+	  if (err) {
+	    return err;
+	  }
+	  return data;
+	});
 }
