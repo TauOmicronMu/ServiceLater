@@ -10,7 +10,7 @@ http.createServer(function (request, response) {
    response.writeHead(200, {'Content-Type': 'text/html'});
    
    //var data = fs.readFileSync('index.html');
-   var data = messageBird();
+   var data = "<h1>" + messageBird() + "</h1>";
 
 
    //data = getIncidentTable();
