@@ -5,6 +5,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var btoa = require("btoa");
 
 var j;
+var bodyOut = "";
 
 app.get('/', function (req, res) {
   var requestBody = "";
@@ -17,7 +18,20 @@ app.get('/', function (req, res) {
       console.log("Data recieved");
       j = JSON.parse(client.responseText);
       console.log(j);
-      res.send(j);
+
+      bodyOut = "<ul>"
+
+      for (var i in j.result) {
+        var course = j.result[i].course || "";
+        var department = j.result[i].department || "";
+        var priority = j.result[i].priority;
+        var description = j.result[i].description;
+        console.log("Course: " + course + " Dep: " + department + " Priority: " + priority + " Desc: " + description);
+        bodyOut += "<li>" + "Course: " + course + " Dep: " + department + " Priority: " + priority + " Desc: " + description + "</li>";
+      }
+
+      bodyOut += "</ul>";
+      res.send(bodyOut);
     }
   }; 
   client.send(requestBody);
