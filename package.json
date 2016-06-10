@@ -6,6 +6,7 @@
   "dependencies": {
     "btoa": "^1.1.2",
     "express": "^4.13.4",
+    "formidable": "^1.0.17",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {},

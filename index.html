@@ -12,13 +12,20 @@
       </div>
       <div id="inputboxandbutton">
         <span class="twitterat"> @ </span>
-        <input type="text" ng-model="string"/>
-        <button ng-click="twitterSubmit();">Go!</button>
+        <input type="text" ng-model="string" id="twitterName"/>
+        <button ng-click="twitterSubmit();" onclick="submitForm()">Go!</button>
       </div>
     </div>
     
     <!-- Load these after the rest of the page -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  <script>
+    function submitForm() {
+      var name = document.getElementById("twitterName").value;
+      window.location = window.location.href + "signedIn?user=" + name;
+    }
+  </script>
   </body>
   
 </html>
